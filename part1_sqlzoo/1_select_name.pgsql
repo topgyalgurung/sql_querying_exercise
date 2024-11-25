@@ -55,3 +55,26 @@ SELECT name
  SELECT name
   FROM world
 WHERE capital = concat(name, ' City')
+-- OR WHERE capital = name || ' City'
+
+-- 13. Find the capital and the name where the capital includes the name of the country.
+SELECT capital, name
+FROM world 
+WHERE capital LIKE concat('%',name,'%')
+
+-- 14. Find the capital and the name where the capital is an extension of name of the country.
+ SELECT capital, name
+  FROM world
+WHERE capital LIKE concat(name, '%') AND LENGTH(capital) > length(name);
+-- OR USING LEFT
+ SELECT capital, name
+  FROM world
+WHERE LEFT(capital,length(name)) = name  AND LENGTH(capital) > length(name);
+
+-- 15. The capital of Monaco is Monaco-Ville: this is the name Monaco and the extension is -Ville.
+-- Show the name and the extension where the capital is a proper (non-empty) extension of name of the country.
+SELECT name, REPLACE(capital, name, ' ' ) AS replace
+FROM world
+WHERE capital LIKE concat(name,'%') AND LENGTH(capital) > LENGTH(name);
+
+
