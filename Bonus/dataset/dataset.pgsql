@@ -1,0 +1,1 @@
+-- Find a set of tabular data you’d be interested in querying, and practice adding and querying records using SQL. You could explore data on movies, music, sports, voting, or anything else you’re curious about.
